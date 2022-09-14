@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
     @IBAction func change(_ sender: UIButton) {
         loadQuestions()
         let vc = AnswerSelectionViewController()
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
     func loadQuestions(){
@@ -34,6 +35,11 @@ class MainViewController: UIViewController {
             }
         })
     }
-
 }
+extension MainViewController: AnswerSelectionViewControllerDelegate{
+        func userDidAnswer(_ question: String) {
+            print("conexion entre controladores exitosa")
+            print(question)
+        }
+    }
 

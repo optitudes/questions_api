@@ -8,6 +8,9 @@
 import UIKit
 
 class AnswerSelectionViewController: UIViewController {
+    
+    weak var delegate: AnswerSelectionViewControllerDelegate?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,15 +18,13 @@ class AnswerSelectionViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func userdidConfirmAnswer(_ sender: UIButton) {
+        delegate?.userDidAnswer("buenas ")
+        self.navigationController?.popViewController(animated: true)
     }
-    */
+    
 
+}
+protocol AnswerSelectionViewControllerDelegate: AnyObject{
+    func userDidAnswer(_ question: String)
 }
