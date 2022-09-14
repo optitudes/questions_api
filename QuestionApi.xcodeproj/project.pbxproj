@@ -22,6 +22,8 @@
 		50A95D5A28D2268F005A8DD1 /* QuestionsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A95D5928D2268F005A8DD1 /* QuestionsDataService.swift */; };
 		50A95D5C28D22696005A8DD1 /* BLQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A95D5B28D22696005A8DD1 /* BLQuestion.swift */; };
 		50A95D5E28D2269F005A8DD1 /* ConstansURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A95D5D28D2269F005A8DD1 /* ConstansURL.swift */; };
+		50A95D6328D28504005A8DD1 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A95D6128D28504005A8DD1 /* QuestionTableViewCell.swift */; };
+		50A95D6428D28504005A8DD1 /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50A95D6228D28504005A8DD1 /* QuestionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		50A95D5928D2268F005A8DD1 /* QuestionsDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsDataService.swift; sourceTree = "<group>"; };
 		50A95D5B28D22696005A8DD1 /* BLQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLQuestion.swift; sourceTree = "<group>"; };
 		50A95D5D28D2269F005A8DD1 /* ConstansURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstansURL.swift; sourceTree = "<group>"; };
+		50A95D6128D28504005A8DD1 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		50A95D6228D28504005A8DD1 /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +192,7 @@
 		50A95D5728D2260E005A8DD1 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				50A95D6028D284DC005A8DD1 /* Cells */,
 				50A95D5D28D2269F005A8DD1 /* ConstansURL.swift */,
 			);
 			path = Commons;
@@ -199,6 +204,15 @@
 				50A95D5B28D22696005A8DD1 /* BLQuestion.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		50A95D6028D284DC005A8DD1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				50A95D6128D28504005A8DD1 /* QuestionTableViewCell.swift */,
+				50A95D6228D28504005A8DD1 /* QuestionTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +322,7 @@
 				50A95D1828D21FD4005A8DD1 /* LaunchScreen.storyboard in Resources */,
 				50A95D5528D224D8005A8DD1 /* AnswerSelectionViewController.xib in Resources */,
 				50A95D1528D21FD4005A8DD1 /* Assets.xcassets in Resources */,
+				50A95D6428D28504005A8DD1 /* QuestionTableViewCell.xib in Resources */,
 				50A95D1328D21FD3005A8DD1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +354,7 @@
 				50A95D5428D224D8005A8DD1 /* AnswerSelectionViewController.swift in Sources */,
 				50A95D5C28D22696005A8DD1 /* BLQuestion.swift in Sources */,
 				50A95D5A28D2268F005A8DD1 /* QuestionsDataService.swift in Sources */,
+				50A95D6328D28504005A8DD1 /* QuestionTableViewCell.swift in Sources */,
 				50A95D0C28D21FD3005A8DD1 /* AppDelegate.swift in Sources */,
 				50A95D0E28D21FD3005A8DD1 /* SceneDelegate.swift in Sources */,
 			);

@@ -14,17 +14,20 @@ class MainViewController: UIViewController {
     var questionsLoaded : [BLQuestion] = []
     var totalQuestionsLoaded : Int = 0
     var isQuestionAvailable : Bool = false
-    
-    var testCountries: [String] = ["Panama","Colombia","Peru","Rusia","Alemania","Brasil","Venezuela","Costa rica","Nort Corea","Japon","Ucrania","as","asdf","asdfasdf","asdfadf","adsfeeee","333"]
-
+    var levelsRegistereds : Int = 0
+    var currentLevel :  Int = 0
     @IBOutlet weak var tableViewQuestions: UITableView!
     let defa: Int = 2
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadQuestions()
-        
         tableViewQuestions.dataSource = self
         tableViewQuestions.delegate = self
+        loadQuestions()
+        registerTableViewRows()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
     }
     
     @IBAction func change(_ sender: UIButton) {
@@ -32,6 +35,17 @@ class MainViewController: UIViewController {
         vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func reload(_ sender: UIButton) {
+        tableViewQuestions.reloadData()
+
+        
+    }
+    func registerTableViewRows() {
+        let nibName = UINib(nibName: "\(QuestionTableViewCell.self)", bundle: nil)
+        tableViewQuestions.register(nibName, forCellReuseIdentifier: "\(QuestionTableViewCell.self)")
+    }
+    
     func loadQuestions(){
         questionDataService.getFromApi(url: ConstansURL.getQuestionsURL,type: BLResponse.self ,onComplete:{ response in
             self.questionsLoaded = response.results
@@ -46,22 +60,24 @@ class MainViewController: UIViewController {
 }
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print (testCountries[indexPath.row])
+        print (questionsLoaded[indexPath.row])
     }
     
 }
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testCountries.count
+//        ttextViewCategory.backgroundColor = UIColor.lightGray
+        return questionsLoaded.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "firtsCell")
-        if (cell == nil){
-            cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(QuestionTableViewCell.self)") as? QuestionTableViewCell else {
+            return UITableViewCell()
         }
-        cell!.textLabel?.text = testCountries[indexPath.row]
-        return cell!
+        cell.textViewCategory.text = questionsLoaded[indexPath.row].category
+        cell.labelLevelValue.text = String(indexPath.row + 1)
+        cell.backgroundColor = UIColor.gray
+        return cell
     }
     
     
