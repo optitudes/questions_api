@@ -22,8 +22,6 @@ class AnswerSelectionViewController: UIViewController {
         delegate?.userDidAnswer("buenas ")
         self.navigationController?.popViewController(animated: true)
     }
-    
-
 }
 protocol AnswerSelectionViewControllerDelegate: AnyObject{
     func userDidAnswer(_ question: String)
