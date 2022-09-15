@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Mkm-9M-OWF" customClass="PossibleAnswerView" customModule="QuestionApi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="487" height="73"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FlT-3V-rIL">
+                    <rect key="frame" x="20" y="13" width="447" height="47"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="FlT-3V-rIL" secondAttribute="trailing" constant="20" symbolic="YES" id="Axz-4x-wya"/>
+                <constraint firstAttribute="bottom" secondItem="FlT-3V-rIL" secondAttribute="bottom" constant="13" id="TBi-4k-xGn"/>
+                <constraint firstItem="FlT-3V-rIL" firstAttribute="leading" secondItem="Mkm-9M-OWF" secondAttribute="leading" constant="20" symbolic="YES" id="ZRa-Tw-uM5"/>
+                <constraint firstItem="FlT-3V-rIL" firstAttribute="top" secondItem="Mkm-9M-OWF" secondAttribute="top" constant="13" id="xZH-hg-QIu"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="answerText" destination="FlT-3V-rIL" id="vho-Cj-IVg"/>
+            </connections>
+            <point key="canvasLocation" x="156.15384615384616" y="-282.58293838862556"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

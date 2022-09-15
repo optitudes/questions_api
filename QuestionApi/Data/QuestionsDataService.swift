@@ -22,6 +22,7 @@ class QuestionsDataService{
                 return }
 
             do{
+                print("##Data obtenida")
                 let dataDecoded : T = try JSONDecoder().decode(T.self,from: data)
                 DispatchQueue.global().async {
                     onComplete( dataDecoded )

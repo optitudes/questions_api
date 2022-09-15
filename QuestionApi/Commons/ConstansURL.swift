@@ -7,5 +7,5 @@
 
 import Foundation
 class ConstansURL {
-    static let getQuestionsURL = "https://opentdb.com/api.php?amount=10"
+    static let getQuestionsURL = "https://opentdb.com/api.php?amount=5"
 }
