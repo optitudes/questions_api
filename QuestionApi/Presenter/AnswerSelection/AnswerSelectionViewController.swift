@@ -11,7 +11,7 @@ class AnswerSelectionViewController: UIViewController {
     
     weak var delegate: AnswerSelectionViewControllerDelegate?
     var pLAnswerQuestion: PLAnswerQuestion = PLAnswerQuestion()
-    var test : [String] = ["opcion ddddddddfs\nsdfgsdfgsdfg\nsdfgsfg", "opcion 2 ", "opcion3"]
+    var answerList : [String] = []
     var answerSelected : String = ""
 //    @IBOutlet weak var pickerViewAnswer: UIPickerView!
     @IBOutlet weak var textQuestion: UITextView!
@@ -23,6 +23,8 @@ class AnswerSelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textQuestion.text = pLAnswerQuestion.question
+        answerList = pLAnswerQuestion.possibleAnswers
+        print("###pregunta cargada \(textQuestion.text)")
         print(pLAnswerQuestion.possibleAnswers)
         
         pickerPossibleAnswer.dataSource = self
@@ -77,7 +79,7 @@ extension AnswerSelectionViewController: UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return test.count
+        return answerList.count
     }
     
     
@@ -86,10 +88,10 @@ extension AnswerSelectionViewController: UIPickerViewDataSource{
 
 extension AnswerSelectionViewController: UIPickerViewDelegate{
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return test[row]
+        return answerList[row]
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.answerSelected = test[row]
+        self.answerSelected = answerList[row]
         print("### opcion seleccionada \(self.answerSelected)")
     }
     

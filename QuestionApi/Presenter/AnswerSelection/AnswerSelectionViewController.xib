@@ -29,16 +29,18 @@
                         <action selector="userdidConfirmAnswer:" destination="-1" eventType="touchUpInside" id="UFe-YC-9AM"/>
                     </connections>
                 </button>
-                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wiv-cH-YE7">
+                <pickerView contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wiv-cH-YE7">
                     <rect key="frame" x="20" y="347" width="374" height="216"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <accessibility key="accessibilityConfiguration">
+                        <accessibilityTraits key="traits" adjustable="YES"/>
+                    </accessibility>
+                    <rect key="contentStretch" x="0.40000000000000002" y="0.40000000000000002" width="1" height="1"/>
                 </pickerView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="asdfadsfadsf" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fHy-Sa-zzr">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="asdpppppkfkjhkhjgkhgkhgkjhgkhjgkhjgkjhgkhjgkhgkjjhgkhgkjhgkhjgkjhg" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fHy-Sa-zzr">
                     <rect key="frame" x="51" y="125" width="343" height="194"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="194" id="0wC-HV-1Mr"/>
-                    </constraints>
                     <color key="textColor" systemColor="labelColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
