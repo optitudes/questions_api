@@ -16,11 +16,11 @@ class MainViewController: UIViewController {
     let questionDataService : QuestionsDataService = QuestionsDataService()
     var questionsLoaded : [BLQuestion] = []
     var userScore : Int = 0
-    
-    var currentLevel :  IndexPath?
+    var currentLevel : Int = 0
+    var currentLevelIndexPath :  IndexPath?
     var correctAnswer : String = ""
     
-    var isGameActive : Bool = false
+    var isGameActive : Bool = true
     
     @IBOutlet weak var labelScore: UILabel!
     @IBOutlet weak var tableViewQuestions: UITableView!
@@ -67,6 +67,7 @@ class MainViewController: UIViewController {
         isGameActive = true
         userScore = 0
         labelScore.text = "0"
+        currentLevel = 0
     }
     func loadQuestions(){
         questionDataService.getFromApi(url: ConstansURL.getQuestionsURL,type: BLResponse.self ,onComplete:{ response in
@@ -79,16 +80,18 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(isGameActive){
-            print("## Se selecciono un objeto \(indexPath.row)")
-            print ("##pregunta :\(questionsLoaded[indexPath.row])")
-            print ("##respuesta :\(questionsLoaded[indexPath.row].correctAnswer)")
-            
-            self.correctAnswer = questionsLoaded[indexPath.row].correctAnswer
-            currentLevel = indexPath
-            let vc = AnswerSelectionViewController()
-            vc.delegate = self
-            vc.pLAnswerQuestion = PLQuestionConverter.parsePLQuestion(bLQuestion: questionsLoaded[indexPath.row])
-            self.navigationController?.pushViewController(vc, animated: true)
+            if( indexPath.row == currentLevel){
+                print("## Se selecciono un objeto \(indexPath.row)")
+                print ("##pregunta :\(questionsLoaded[indexPath.row])")
+                print ("##respuesta :\(questionsLoaded[indexPath.row].correctAnswer)")
+                
+                self.correctAnswer = questionsLoaded[indexPath.row].correctAnswer
+                currentLevelIndexPath = indexPath
+                let vc = AnswerSelectionViewController()
+                vc.delegate = self
+                vc.pLAnswerQuestion = PLQuestionConverter.parsePLQuestion(bLQuestion: questionsLoaded[indexPath.row])
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }else {
             print("Please click on start button")
         }
@@ -120,7 +123,8 @@ extension MainViewController: AnswerSelectionViewControllerDelegate{
             print("respuesta correcta \(self.correctAnswer)")
             if(userAnswer.elementsEqual(self.correctAnswer)){
                 self.tableViewQuestions.cellForRow(at: tableViewQuestions.indexPathForSelectedRow!)?.backgroundColor = UIColor.green
-                    userScore+=200
+                    userScore += 200
+                    currentLevel += 1
                     labelScore.text = String(userScore)
             }else{
                 self.tableViewQuestions.cellForRow(at: tableViewQuestions.indexPathForSelectedRow!)?.backgroundColor = UIColor.red
